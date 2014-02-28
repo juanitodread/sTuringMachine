@@ -29,17 +29,17 @@ import java.awt.Graphics
  *
  * Jul 30, 2013
  */
-abstract class AbstractGraphicObject extends Serializable {
-
-  /**
-   * Object identity
-   */
-  var id: Int
+abstract class AbstractGraphicObject( val id: String ) extends Serializable {
 
   /**
    * This method draws a graphic object
    * @param g Graphic object to be drawn
    */
   def draw( g: Graphics )
+
+  /**
+   * Get the String representation of AbstractGraphicObject
+   */
+  override def toString = s"{$id}"
 
 }

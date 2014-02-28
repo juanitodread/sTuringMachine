@@ -29,9 +29,8 @@ import java.awt.Graphics
  *
  * Jul 31, 2013
  */
-class InitialState private ( label: String, id: Int) extends AbstractState( label: String ) {
+class InitialState private ( override val id: String) extends AbstractState( id ) {
   
-  var id = 1
   var exitedColor = InitialState.UNEXCITED_COLOR
   
   override def draw(g: Graphics): Unit = {
@@ -51,7 +50,7 @@ object InitialState {
 
   val UNEXCITED_COLOR = Color.BLACK
 
-  private lazy val INSTANCE = new InitialState( "q1", 1 )
+  private lazy val INSTANCE = new InitialState( "q1" )
 
   def apply() = INSTANCE
 }

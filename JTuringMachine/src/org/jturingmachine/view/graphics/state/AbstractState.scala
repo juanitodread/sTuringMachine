@@ -28,19 +28,15 @@ import org.jturingmachine.view.graphics.AbstractGraphicObject
  *
  * Jul 30, 2013
  */
-abstract class AbstractState(label: String) extends AbstractGraphicObject {
-  
+abstract class AbstractState( override val id: String ) extends AbstractGraphicObject( id ) {
+
   var exited: Boolean = false
-  
-//  val moving: Boolean = false
-//  
-//  val locked: Boolean = false
-  
-  def excite(enable: Boolean): Unit
-  
-  override def toString(): String = {
-    s"{id: ${id}, label: ${label}}"
-  }
+
+  //  val moving: Boolean = false
+  //  
+  //  val locked: Boolean = false
+
+  def excite( enable: Boolean ): Unit
 }
 
 object ObjectState {
