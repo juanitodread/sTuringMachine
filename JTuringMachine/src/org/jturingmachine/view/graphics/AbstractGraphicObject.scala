@@ -40,6 +40,6 @@ abstract class AbstractGraphicObject( val id: String ) extends Serializable {
   /**
    * Get the String representation of AbstractGraphicObject
    */
-  override def toString = s"{$id}"
+  override def toString = s"{clazz:${this.getClass.getName}, id:$id}"
 
 }
