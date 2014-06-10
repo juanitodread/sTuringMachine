@@ -18,14 +18,23 @@
  */
 package org.jturingmachine.view
 
-import scala.swing.SimpleSwingApplication
+import java.awt.Dimension
+
+import scala.swing.Action
+import scala.swing.BorderPanel
+import scala.swing.Component
+import scala.swing.Dialog
+import scala.swing.FlowPanel
 import scala.swing.MainFrame
-import scala.swing.BoxPanel
-import scala.swing.Orientation
-import scala.swing.Swing
-import scala.swing.Button
-import org.jturingmachine.util.MessageUtil
+import scala.swing.Menu
+import scala.swing.MenuBar
+import scala.swing.MenuItem
+import scala.swing.SimpleSwingApplication
+
 import org.jturingmachine.ApplicationConstants
+import org.jturingmachine.util.MessageUtil
+import org.jturingmachine.view.component.Canvas
+import org.jturingmachine.view.component.WorkPanel
 
 /**
  * Main frame of the application.
@@ -43,14 +52,41 @@ class ApplicationView extends SimpleSwingApplication with ApplicationConstants {
 
     title = s"${appTitle} - v ${appVersion}"
 
-    val button = new Button {
-      text = "Click Me"
+    val workPanel = new WorkPanel(FlowPanel.Alignment.Left    )
+    val canvas = new Canvas()
+    
+    
+    
+    contents = new BorderPanel() {
+      layout(workPanel) = BorderPanel.Position.North
+//      layout(canvas) = BorderPanel.Position.Center
     }
-
-    contents = new BoxPanel( Orientation.Vertical ) {
-      contents += button
-      border = Swing.EmptyBorder( 30, 30, 10, 30 )
-    }
+    menuBar = menuBarDefinition(contents)
+    size_=(new Dimension(1000, 800))
+    
+    pack
   }
-
+  
+  def menuBarDefinition(frameContents: Seq[Component]): MenuBar = {
+    new MenuBar {
+      val menu1 = new Menu("File") {
+    
+      val item = new MenuItem("Open") {
+        println("Something")
+        new Dialog()
+      }
+      
+      item.action = Action("new Open") {
+        println("Something")
+        Dialog.showMessage(frameContents.head , "Hello World", "My Title", Dialog.Message.Info)
+      }
+      
+      contents += item
+      }
+      
+      contents += menu1
+    }
+    
+    
+  }
 }
