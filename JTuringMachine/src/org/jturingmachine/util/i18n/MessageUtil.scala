@@ -34,8 +34,6 @@ object MessageUtil extends ApplicationConstants {
 
   val locale = Locale.getDefault
   val messages = ResourceBundle.getBundle( MESSAGE_BUNDLE, locale )
-
-  println(s"locale: ${locale}")
   
   /**
    * Get a message from a resource bundle.
