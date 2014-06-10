@@ -33,7 +33,7 @@ import scala.swing.Component
 class WorkPanel(alignment: FlowPanel.Alignment.Value) extends FlowPanel(alignment)() {
   
     val button = Button("Click Me") {
-      println("Button  Clicked")
+      println("Button w  Clicked")
     }
     
     val button2 = Button("Click Me") {
