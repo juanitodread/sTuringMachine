@@ -19,7 +19,6 @@
 package org.jturingmachine.view
 
 import java.awt.Dimension
-
 import scala.swing.Action
 import scala.swing.BorderPanel
 import scala.swing.Component
@@ -30,11 +29,12 @@ import scala.swing.Menu
 import scala.swing.MenuBar
 import scala.swing.MenuItem
 import scala.swing.SimpleSwingApplication
-
 import org.jturingmachine.ApplicationConstants
 import org.jturingmachine.util.MessageUtil
 import org.jturingmachine.view.component.Canvas
 import org.jturingmachine.view.component.WorkPanel
+import javax.swing.UIManager
+import javax.swing.SwingUtilities
 
 /**
  * Main frame of the application.
@@ -52,41 +52,37 @@ class ApplicationView extends SimpleSwingApplication with ApplicationConstants {
 
     title = s"${appTitle} - v ${appVersion}"
 
-    val workPanel = new WorkPanel(FlowPanel.Alignment.Left    )
+    val workPanel = new WorkPanel( FlowPanel.Alignment.Left )
     val canvas = new Canvas()
-    
-    
-    
+
     contents = new BorderPanel() {
-      layout(workPanel) = BorderPanel.Position.North
-//      layout(canvas) = BorderPanel.Position.Center
+      layout( workPanel ) = BorderPanel.Position.North
+      //      layout(canvas) = BorderPanel.Position.Center
     }
-    menuBar = menuBarDefinition(contents)
-    size_=(new Dimension(1000, 800))
-    
+    menuBar = menuBarDefinition( contents )
+
     pack
   }
-  
-  def menuBarDefinition(frameContents: Seq[Component]): MenuBar = {
+
+  def menuBarDefinition( frameContents: Seq[ Component ] ): MenuBar = {
     new MenuBar {
-      val menu1 = new Menu("File") {
-    
-      val item = new MenuItem("Open") {
-        println("Something")
-        new Dialog()
+      val menu1 = new Menu( "File" ) {
+
+        val item = new MenuItem( "Open" ) {
+          println( "Something" )
+          new Dialog()
+        }
+
+        item.action = Action( "new Open" ) {
+          println( "Something" )
+          Dialog.showMessage( frameContents.head, "Hello World", "My Title", Dialog.Message.Info )
+        }
+
+        contents += item
       }
-      
-      item.action = Action("new Open") {
-        println("Something")
-        Dialog.showMessage(frameContents.head , "Hello World", "My Title", Dialog.Message.Info)
-      }
-      
-      contents += item
-      }
-      
+
       contents += menu1
     }
-    
-    
+
   }
 }

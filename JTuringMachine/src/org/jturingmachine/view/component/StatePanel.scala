@@ -1,5 +1,5 @@
 /**
- * jTuring Machine
+ * sTuringMachine
  *
  * Copyright 2013 juanitodread
  *
@@ -16,32 +16,28 @@
  * limitations under the License.
  *
  */
-package org.jturingmachine
+package org.jturingmachine.view.component
 
-import javax.swing.SwingUtilities
-import org.jturingmachine.view.ApplicationView
-import org.jturingmachine.view.graphics.state.InitialState
-import javax.swing.UIManager
+import scala.swing.FlowPanel
+import javax.swing.BorderFactory
+import scala.swing.Button
 
 /**
- * Main class. This class starts all the application.
+ *
  *
  * @author juanitodread
- * @version 1.0
+ * @version $
  *
- * Jul 30, 2013
+ * Jun 10, 2014
  */
-object MainApp {
+class StatePanel extends FlowPanel {
 
-  def main( args: Array[ String ] ): Unit = {
-    SwingUtilities.invokeLater( new Runnable() {
-      def run() {
-        val app = new ApplicationView
-        app.startup( args )
-        val initState = InitialState()
-        
-      }
-    } )
+ border = BorderFactory.createTitledBorder("State")
+ 
+  val button3 = Button("Click Me") {
+    println("Button Clicked")
   }
-
+ 
+  contents += button3
+  
 }

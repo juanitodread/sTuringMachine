@@ -18,9 +18,8 @@
  */
 package org.jturingmachine.view.component
 
-import scala.swing.FlowPanel
 import scala.swing.Button
-import scala.swing.Component
+import scala.swing.FlowPanel
 
 /**
  * This is the general work panel in the top of the main frame.
@@ -30,20 +29,20 @@ import scala.swing.Component
  *
  * Jun 9, 2014
  */
-class WorkPanel(alignment: FlowPanel.Alignment.Value) extends FlowPanel(alignment)() {
-  
-    val button = Button("Click Me") {
-      println("Button w  Clicked")
-    }
-    
-    val button2 = Button("Click Me") {
-      println("Button Clicked")
-    }
-        
-    val button3 = Button("Click Me") {
-      println("Button Clicked")
-    }
-    
-    contents += button
-    contents += button2
+class WorkPanel( alignment: FlowPanel.Alignment.Value ) extends FlowPanel( alignment )() {
+
+  val statePanel = new StatePanel {
+
+  }
+
+  val button2 = Button( "Click Me" ) {
+    println( "Button Clicked" )
+  }
+
+  val button3 = Button( "Click Me" ) {
+    println( "Button Clicked" )
+  }
+
+  contents += statePanel
+  contents += button2
 }
