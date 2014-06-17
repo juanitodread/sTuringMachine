@@ -33,7 +33,7 @@ import org.jturingmachine.ApplicationConstants
 object MessageUtil extends ApplicationConstants {
 
   val locale = Locale.getDefault
-  val messages = ResourceBundle.getBundle( MESSAGE_BUNDLE, locale )
+  val messages = ResourceBundle.getBundle( MessageBundle, locale )
   
   /**
    * Get a message from a resource bundle.
@@ -43,7 +43,7 @@ object MessageUtil extends ApplicationConstants {
    */
   def getMessage( key: String ) = Option( key ) match {
     case Some( x ) => messages.getString( x )
-    case None      => MESSAGE_NOT_FOUND
+    case None      => MessageNotFound 
   }
 
 }

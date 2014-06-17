@@ -47,8 +47,8 @@ import javax.swing.SwingUtilities
 class ApplicationView extends SimpleSwingApplication with ApplicationConstants {
 
   def top = new MainFrame {
-    val appTitle = MessageUtil.getMessage( APP_TITLE )
-    val appVersion = MessageUtil.getMessage( APP_VERSION )
+    val appTitle = MessageUtil.getMessage( AppTitle )
+    val appVersion = MessageUtil.getMessage( AppVersion )
 
     title = s"${appTitle} - v ${appVersion}"
 

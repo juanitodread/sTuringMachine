@@ -29,16 +29,16 @@ package org.jturingmachine
 trait ApplicationConstants {
 
   /************************ [MESSAGE_BUNDLES] *******************************/
-  val MESSAGE_BUNDLE = "org.jturingmachine.i18n.bundle.MessageBundle"
+  val MessageBundle = "org.jturingmachine.i18n.bundle.MessageBundle"
 
   /************************ [/MESSAGE_BUNDLES] *******************************/
 
     
   /************************ [MESSAGE_KEY] *******************************/
-  val MESSAGE_NOT_FOUND = "Text not found"
+  val MessageNotFound = "Text not found"
 
-  val APP_TITLE = "org.jturingmachine.view.applicationview.title"
-  val APP_VERSION = "org.jturingmachine.version"
+  val AppTitle = "org.jturingmachine.view.applicationview.title"
+  val AppVersion = "org.jturingmachine.version"
 
   /************************ [MESSAGE_KEY] *******************************/
 

@@ -34,12 +34,11 @@ import javax.swing.UIManager
 object MainApp {
 
   def main( args: Array[ String ] ): Unit = {
-    SwingUtilities.invokeLater( new Runnable() {
-      def run() {
+    SwingUtilities.invokeLater( new Runnable {
+      def run {
         val app = new ApplicationView
         app.startup( args )
-        val initState = InitialState()
-        
+        val initState = InitialState
       }
     } )
   }
