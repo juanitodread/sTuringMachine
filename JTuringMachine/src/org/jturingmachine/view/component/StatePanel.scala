@@ -21,6 +21,9 @@ package org.jturingmachine.view.component
 import scala.swing.FlowPanel
 import javax.swing.BorderFactory
 import scala.swing.Button
+import scala.swing.RadioButton
+import scala.swing.ButtonGroup
+import scala.swing.ComboBox
 
 /**
  *
@@ -32,12 +35,29 @@ import scala.swing.Button
  */
 class StatePanel extends FlowPanel {
 
- border = BorderFactory.createTitledBorder("State")
- 
-  val button3 = Button("Click Me") {
+  border = BorderFactory.createTitledBorder("State")
+  
+  
+  
+  val ordinaryStateRd = new RadioButton("Transition") {
+    
+  }
+
+  val finalStateRd = new RadioButton("Final") {
+    
+  }
+  
+  val currentStatesCmb = new ComboBox(List("Current states...", "q1", "q2"))
+  currentStatesCmb .tooltip = "Simple tooltip"
+  
+  val deleteStateBtn = Button("Delete") {
     println("Button Clicked")
   }
  
-  contents += button3
+  val statesGroup = new ButtonGroup(ordinaryStateRd, finalStateRd)
+  
+  contents ++= List(ordinaryStateRd, finalStateRd )
+  contents += currentStatesCmb 
+  contents += deleteStateBtn
   
 }
